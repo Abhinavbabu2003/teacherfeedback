@@ -1,0 +1,61 @@
+ body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main_form {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .teacher {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .teacher h2 {
+            font-size: 24px;
+        }
+
+        .teacher h3 {
+            font-size: 20px;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .teacher {
+                width: 90%;
+            }
+
+            .btn-primary {
+                width: 100%;
+            }
+        }

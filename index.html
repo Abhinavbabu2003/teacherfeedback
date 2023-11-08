@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose Odd or Even Semester</title>
+</head>
+<body>
+    <h1 ID="H1">NEHRU COLLEGE OF ENGINEERING AND RESEARCH CENTER</h1>
+    
+    <form>
+        <label for="semester_type">Choose a Semester Type:</label><BR>
+        <label for="odd">Odd Semester</label>
+        <input type="radio" id="odd" name="semester_type" value="odd" onclick="updateSemesterOptions()"><BR>
+        <label for="even">Even Semester</label>
+        <input type="radio" id="even" name="semester_type" value="even" onclick="updateSemesterOptions()">
+       
+        <br><br>
+        
+        <div id="semester_select">
+            <label for="select_semester">Select a Semester:</label>
+            <select id="select_semester" name="select_semester">
+                <!-- Options will be dynamically updated based on selection -->
+            </select>
+        </div>
+        
+        <br>
+        <input type="button" value="Submit" onclick="navigate()">
+    </form>
+
+    <script>
+        function updateSemesterOptions() {
+            var semesterType = document.querySelector('input[name="semester_type"]:checked');
+            var semesterSelect = document.getElementById("select_semester");
+            
+            if (semesterType) {
+                semesterSelect.innerHTML = ''; // Clear the existing options
+                
+                if (semesterType.value === "odd") {
+                    addSemesterOption(1, semesterSelect);
+                    addSemesterOption(3, semesterSelect);
+                    addSemesterOption(5, semesterSelect);
+                    addSemesterOption(7, semesterSelect);
+                } else if (semesterType.value === "even") {
+                    addSemesterOption(2, semesterSelect);
+                    addSemesterOption(4, semesterSelect);
+                    addSemesterOption(6, semesterSelect);
+                    addSemesterOption(8, semesterSelect);
+                }
+            } else {
+                semesterSelect.innerHTML = ''; // Clear the options if no semester type is selected
+            }
+        }
+        
+        function addSemesterOption(semesterNumber, selectElement) {
+            var option = document.createElement("option");
+            option.value = semesterNumber;
+            option.text = "S" + semesterNumber;
+            selectElement.appendChild(option);
+        }
+        
+        function navigate() {
+            var selectedSemester = document.getElementById("select_semester").value;
+            
+            if (selectedSemester) {
+                var links = {
+                    "1": "s1/s1.html",
+                    "2": "s2/s2.html",
+                    "3": "s3/s3.html",
+                    "4": "s4/s4.html",
+                    "5": "s5.html",
+                    "6": "s6/s6.html",
+                    "7": "s7/s7.html",
+                    "8": "s8/s8.html",
+                };
+                
+                var selectedOption = selectedSemester;
+                window.location.href = links[selectedOption];
+            } else {
+                alert("Please select a semester.");
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        label, input[type="radio"] {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 500px;
+        }
+
+        input[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 500px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>

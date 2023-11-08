@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Teacher Feedback Link Form</title>
+</head>
+<body>
+    <div class="banner">
+        <marquee behavior="scroll" direction="left">
+            <h1>NEHRU COLLEGE OF ENGINEERING AND RESEARCH CENTRE</h1>
+        </marquee>
+    </div>
+    <style>
+        .banner {
+            background-color: #007bff; /* Background color */
+            color: #fff; /* Text color */
+            text-align: center;
+            padding: 10px;
+        }
+
+        .banner h1 {
+            font-size: 24px;
+        }
+
+        /* Adjust the marquee styles */
+        .banner marquee {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+    </style>
+    <h2>DEPARTMENTS S5</h2>
+    <form>
+        <label for="course_select">Select a Course:</label>
+        <select id="course_select" name="course_select">
+            <option value="CSE-A">CSE-A</option>
+            <option value="CSE-B">CSE-B</option>
+            <option value="ME">ME</option>
+            <option value="MTR">MTR</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+        </select>
+        <br><br>
+        
+        <input type="button" value="GO" onclick="viewTeacher()">
+    </form>
+
+    <script>
+        function viewTeacher() {
+            var selectedCourse = document.getElementById("course_select").value;
+            
+            // Define the URLs for each course's teacher feedback page
+            var teacherUrls = {
+                "CSE-A": "cseas5.html",
+                "CSE-B": "csebtrfeedbacks5.html",
+                "ME": "mefeedbacks5.html",
+                "MTR": "mtrfeedbacks5.html",
+                "ECE": "ecefeedbacks5.html",
+                "EEE": "eeefeedbacks5.html"
+            };
+            
+            // Redirect to the selected teacher's feedback page
+            window.location.href = teacherUrls[selectedCourse];
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        input[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</body>
+</html>
